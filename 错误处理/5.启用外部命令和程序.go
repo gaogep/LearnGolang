@@ -7,12 +7,6 @@ import (
 	"os"
 )
 
-package main
-import (
-	"fmt"
-	"os/exec"
-	"os"
-)
 func main() {
 	env := os.Environ()
 	procAttr := &os.ProcAttr{
