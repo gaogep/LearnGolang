@@ -34,7 +34,6 @@ func (ci *Circle) Area() float32 {
 func main() {
 	sq1 := Squar{5}
 	var sh Shape = sq1
-	var v int
 	if t, ok := sh.(Squar); ok {
 		fmt.Println(t, ok)
 	}
