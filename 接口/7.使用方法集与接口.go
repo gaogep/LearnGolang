@@ -34,15 +34,15 @@ func main() {
 	var lst List
 
 	// CountInto(lst, 1, 10)
-	// 在lst上调用CountInto方法会出现编译错误 因为CountInto需要一个Appender
-	// 而lst的Append方法定义在指针上 调用-> lst.Append(.....) 是错误的
+	// 在lst上调用CountInto函数会出现编译错误 因为CountInto需要一个Appender
+	// 而lst的Append方法定义在指针上
 	// 而调用LongEnough不会报错是因为Len方法定义在值上
 	if LongEnough(lst) {
 		fmt.Printf("- lst is long enough\n")
 	}
 
-	// new函数返回一个指针指向 plst
-	// 调用CountInto是可以的 调用LongEnough的时候 指针会被自动解引用
+	// new函数返回一个指针指向plst
+	// 调用CountInto是可以的调用LongEnough的时候 指针会被自动解引用
 	plst := new(List)
 	CountInto(plst, 1, 10)
 	if LongEnough(plst) {

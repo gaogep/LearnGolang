@@ -20,7 +20,7 @@ type Circle struct {
 	radius float32
 }
 
-// *Square的Area()方法
+// Square的Area()方法
 func (sq Squar) Area() float32 {
 	return sq.side * sq.side
 }
