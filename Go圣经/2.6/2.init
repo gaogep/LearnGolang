@@ -1,0 +1,3 @@
+init函数的执行顺序
+import A -> import B -> import C -> import D
+D中init函数先执行 其次是C 接下来是B 最后是A
