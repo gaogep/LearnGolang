@@ -13,5 +13,5 @@ func comma(s string) string {
 }
 
 func main() {
-	fmt.Println(comma("abcdefghijklmno"))
+	fmt.Println(comma("aabc"))
 }
