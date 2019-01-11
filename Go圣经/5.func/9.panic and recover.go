@@ -12,11 +12,9 @@ func main() {
 }
 
 func test() (res int) {
-	var ok bool
 	defer func() {
 		if p := recover(); p != nil {
-			res, ok = p.(int)
-			fmt.Println(ok)
+			res = p.(int)
 		}
 	}()
 
