@@ -33,9 +33,21 @@ func echo(c net.Conn, shout string, delay time.Duration) {
 }
 
 func handlConn(c net.Conn) {
-	input := bufio.NewScanner(c)
-	for input.Scan() {
-		go echo(c, input.Text(), 1*time.Second)
+	abort := make(chan struct{})
+	go func(c net.Conn) {
+		input := bufio.NewScanner(c)
+		for input.Scan() {
+			go echo(c, input.Text(), 1*time.Second)
+			abort <- struct{}{}
+		}
+		c.Close()
+	}(c)
+
+	for {
+		select {
+		case <-time.After(10 * time.Second):
+			return
+		case <-abort:
+		}
 	}
-	c.Close()
 }
