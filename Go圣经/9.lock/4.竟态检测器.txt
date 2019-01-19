@@ -1,0 +1,1 @@
+简单的将 -race 加入 go build run test 中就可以进行检测
